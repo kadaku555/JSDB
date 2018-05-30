@@ -68,6 +68,12 @@ public class DataSystem extends AbstractSystem {
 		return getFormat().containsKey(attributeName);
 	}
 
+	/**
+	 * Register the whole indexation for an attribute
+	 * @param attributeName
+	 * @param index
+	 * @throws JSDBIndexException
+	 */
 	public void addIndex(String attributeName, Map<String, Set<String>> index) throws JSDBIndexException {
 		if (isIndexable(attributeName)) {
 			if (!getIndexes().containsKey(attributeName)) {
@@ -82,6 +88,13 @@ public class DataSystem extends AbstractSystem {
 		}
 	}
 
+	/**
+	 * Register a set of _ids for a value of an attribute
+	 * @param attributeName
+	 * @param value
+	 * @param ids
+	 * @throws JSDBIndexException
+	 */
 	public void addToIndex(String attributeName, String value, Set<String> ids) throws JSDBIndexException {
 		if (isIndexable(attributeName)) {
 			if (getIndexes().containsKey(attributeName)) {
@@ -102,6 +115,13 @@ public class DataSystem extends AbstractSystem {
 		}
 	}
 
+	/**
+	 * Add an _id to the set of _ids for a value of an attribute
+	 * @param attributeName
+	 * @param value
+	 * @param id
+	 * @throws JSDBIndexException
+	 */
 	public void addToIndexValue(String attributeName, String value, String id) throws JSDBIndexException {
 		if (isIndexable(attributeName)) {
 			if (getIndexes().containsKey(attributeName)) {
